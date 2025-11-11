@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Layout</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    .header, .footer {
+        background-color: lightgray;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        width: 50%;
+        border: 1px solid gray;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    <h1>Microsoft</h1>
+    <p>Empower every person and every organization</p>
+</div>
+
+<div class="container">
+    <div class="box">
+        <h2>Products</h2>
+        <p>Surface, Windows, MS Office, Xbox and more.</p>
+    </div>
+
+    <div class="box">
+        <h2>Services</h2>
+        <p>Microsoft 365, Azure, OneDrive, Teams.</p>
+    </div>
+
+    <div class="box">
+        <h2>Design & Innovation</h2>
+        <p>Powerful and accessible technology.</p>
+    </div>
+
+    <div class="box">
+        <h2>Company Values</h2>
+        <p>Privacy, sustainability, accessibility.</p>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Shreya Tiwari</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Clone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #15202B;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .sidebar {
+            padding: 20px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            padding: 15px 10px;
+            margin: 5px 0;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar-menu li:hover {
+            background-color: #1a2836;
+        }
+
+        .main-content {
+            border-left: 1px solid #38444d;
+            border-right: 1px solid #38444d;
+        }
+
+        .tweet-box {
+            padding: 20px;
+            border-bottom: 1px solid #38444d;
+        }
+
+        .tweet-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: transparent;
+            color: white;
+            font-size: 1.2em;
+            resize: none;
+            outline: none;
+        }
+
+        .tweet-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .tweet-button {
+            background-color: #1da1f2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .tweet-button:hover {
+            background-color: #1991da;
+        }
+
+        .tweet {
+            padding: 20px;
+            border-bottom: 1px solid #38444d;
+        }
+
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .tweet-user {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .tweet-username {
+            color: #8899a6;
+        }
+
+        .tweet-content {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .tweet-engagement {
+            display: flex;
+            gap: 30px;
+            color: #8899a6;
+        }
+
+        .tweet-engagement span {
+            cursor: pointer;
+        }
+
+        .tweet-engagement span:hover {
+            color: #1da1f2;
+        }
+
+        .trends {
+            background-color: #1e2732;
+            border-radius: 15px;
+            padding: 15px;
+        }
+
+        .trends h2 {
+            margin-bottom: 15px;
+        }
+
+        .trend-item {
+            margin-bottom: 20px;
+        }
+
+        .trend-category {
+            font-size: 0.9em;
+            color: #8899a6;
+        }
+
+        .trend-name {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .trend-tweets {
+            font-size: 0.9em;
+            color: #8899a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <nav>
+                <ul class="sidebar-menu">
+                    <li>🏠 Home</li>
+                    <li>🔍 Explore</li>
+                    <li>🔔 Notifications</li>
+                    <li>✉️ Messages</li>
+                    <li>📑 Bookmarks</li>
+                    <li>👤 Profile</li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="tweet-box">
+                <textarea class="tweet-input" placeholder="What's happening?" rows="3"></textarea>
+                <div class="tweet-actions">
+                    <div class="tweet-icons">
+                        📷 📊 😊 📅
+                    </div>
+                    <button class="tweet-button">Tweet</button>
+                </div>
+            </div>
+            <div id="feed"></div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <div class="sidebar">
+            <div class="trends">
+                <h2>Trends for you</h2>
+                <div class="trend-item">
+                    <div class="trend-category">Trending in Technology</div>
+                    <div class="trend-name">#WebDevelopment</div>
+                    <div class="trend-tweets">50.5K Tweets</div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-category">Trending in Sports</div>
+                    <div class="trend-name">#WorldCup2026</div>
+                    <div class="trend-tweets">125K Tweets</div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-category">Trending in Entertainment</div>
+                    <div class="trend-name">#MovieNight</div>
+                    <div class="trend-tweets">32.1K Tweets</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample tweets data
+        const tweets = [
+            {
+                user: 'John Doe',
+                username: '@johndoe',
+                content: 'Just learned how to create a Twitter clone! 🚀 #webdev #coding',
+                likes: 42,
+                retweets: 12,
+                replies: 5
+            },
+            {
+                user: 'Web Dev Tips',
+                username: '@webdevtips',
+                content: 'Top 3 CSS tricks every developer should know:\n1. Flexbox\n2. Grid\n3. CSS Variables\n#webdevelopment',
+                likes: 156,
+                retweets: 45,
+                replies: 23
+            }
+        ];
+
+        // Function to create tweet HTML
+        function createTweetElement(tweet) {
+            return `
+                <div class="tweet">
+                    <div class="tweet-header">
+                        <span class="tweet-user">${tweet.user}</span>
+                        <span class="tweet-username">${tweet.username}</span>
+                    </div>
+                    <div class="tweet-content">${tweet.content}</div>
+                    <div class="tweet-engagement">
+                        <span>💬 ${tweet.replies}</span>
+                        <span>🔄 ${tweet.retweets}</span>
+                        <span>❤️ ${tweet.likes}</span>
+                        <span>📤 Share</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to render tweets
+        function renderTweets() {
+            const feed = document.getElementById('feed');
+            feed.innerHTML = tweets.map(tweet => createTweetElement(tweet)).join('');
+        }
+
+        // Add new tweet functionality
+        const tweetInput = document.querySelector('.tweet-input');
+        const tweetButton = document.querySelector('.tweet-button');
+
+        tweetButton.addEventListener('click', () => {
+            const content = tweetInput.value.trim();
+            if (content) {
+                const newTweet = {
+                    user: 'Current User',
+                    username: '@currentuser',
+                    content: content,
+                    likes: 0,
+                    retweets: 0,
+                    replies: 0
+                };
+                tweets.unshift(newTweet);
+                renderTweets();
+                tweetInput.value = '';
+            }
+        });
+
+        // Initial render
+        renderTweets();
+    </script>
+</body>
+</html>

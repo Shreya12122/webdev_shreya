@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #ff0000;
+            margin-bottom: 30px;
+        }
+        
+        .video-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .video-container h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .embedded-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .embedded-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        .links-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .links-container h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .video-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .video-links li {
+            margin-bottom: 15px;
+        }
+        
+        .video-links a {
+            display: block;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-links a:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .video-links a::before {
+            content: "▶ ";
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎥 My YouTube Collection</h1>
+    
+    <div class="video-container">
+        <h2>Featured Video</h2>
+        <div class="embedded-video">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    
+    <div class="links-container">
+        <h2>More Videos to Watch</h2>
+        <ul class="video-links">
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Amazing Tutorial - Learn Something New</a></li>
+            <li><a href="https://www.youtube.com/watch?v=9bZkp7q19f0" target="_blank">Gangnam Style - PSY Official Music Video</a></li>
+            <li><a href="https://www.youtube.com/watch?v=kJQP7kiw5Fk" target="_blank">Luis Fonsi - Despacito ft. Daddy Yankee</a></li>
+            <li><a href="https://www.youtube.com/watch?v=JGwWNGJdvx8" target="_blank">Ed Sheeran - Shape of You</a></li>
+            <li><a href="https://www.youtube.com/watch?v=OPf0YbXqDm0" target="_blank">Mark Ronson - Uptown Funk ft. Bruno Mars</a></li>
+        </ul>
+    </div>
+</body>
+</html>

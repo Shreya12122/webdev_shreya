@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+        
+        section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+        }
+        
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        #about {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+        
+        #about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        #projects {
+            background: white;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .project-card a:hover {
+            background: #764ba2;
+        }
+        
+        #skills {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        #contact {
+            text-align: center;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-links a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .contact-links a:hover {
+            background: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>John Doe</h1>
+        <p>Web Developer & Designer</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resume.html">Resume</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hello! I'm a passionate web developer with expertise in creating beautiful and functional websites. 
+            I love turning ideas into reality through clean code and creative design. With years of experience 
+            in front-end and back-end development, I'm always excited to take on new challenges and learn new technologies.
+        </p>
+    </section>
+    
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>E-Commerce Platform</h3>
+                <p>A full-featured online shopping platform with payment integration and user authentication.</p>
+                <a href="project1.html">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>A responsive portfolio website showcasing creative work with smooth animations.</p>
+                <a href="project2.html">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Task Management App</h3>
+                <p>A productivity app for managing tasks and projects with real-time collaboration.</p>
+                <a href="project3.html">View Project</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <h2>Skills & Technologies</h2>
+        <div class="skills-list">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">UI/UX Design</span>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>I'd love to hear from you! Feel free to reach out through any of these platforms.</p>
+        <div class="contact-links">
+            <a href="mailto:john@example.com">Email</a>
+            <a href="https://github.com/johndoe" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/johndoe" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com/johndoe" target="_blank">Twitter</a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 John Doe. All rights reserved.</p>
+        <p>Built with ❤️ using HTML & CSS</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
